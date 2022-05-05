@@ -1,0 +1,95 @@
+* Repaso clase anterior
+** Roles
+*** Usuario
+    - Operan el sistema
+*** Clientes
+    - los que invierten $$$
+    - representa el mercado al que apunta el producto
+*** Stakeholders
+    - tienen interes en el producto
+
+    #+BEGIN_QUOTE
+    Ejemplos
+    Sponsors,
+    Entes reguladores,
+    Clientes,
+    Usuarios que toman decisiones,
+    areas de la empresa que no estan involucradas directamente con el desarollo
+    #+END_QUOTE
+** Contexto
+*** Negocio
+    - es el objetivo de la organización
+*** Proceso de negocio
+    - conjunto de procesos que realiza la organizacion para lograr su objetivo de negocio segun
+      1. mision
+      2. vision
+      3. objetivos
+* Roles del Ingeniero de Requisitos
+** Facilitador
+   - Asistir a los stakeholders y usuarios durante el proceso
+** Mediador
+   - Facilitar priorizacion de requisitos y resolucion de conflictos de intereses
+** Desarrollador
+   - Documenta y define 
+   - Debe conocer las limitaciones de la arquitectura/infraestructura
+* Responsbilidades del Ingeniero de Requisitos
+** Liderar el proceso
+   - comunicar efectivamente al stakeholders/usuarios
+** Documentar
+   - aplicar diferentes técnicas (uml, user stories, ..)
+** Validar los Requerimientos
+* TODO Dificultades del Procesode IR
+** Esencial
+   - Entender lo que el cliente necesita
+   - El cliente no sabe lo que quiere
+** Accidental
+   - Usar misma base documental (Ej. todos uml)
+** Desafío
+   - 
+* Requerimientos Funcionales
+** Conceptos
+  - Funciones que el usuario necesita resolver con el sistema
+  - Que sean testeables con una cantidad finita de pasos
+  - Podemos verlo como una función para satisfacer necesidades del usuario
+** Como escribirlos
+*** Resumido
+    - Verbo en infinitivo + objeto sobre el que se actúa
+
+    #+BEGIN_QUOTE
+    Por ejemplo *registrar alumno*
+    - verbo: registrar
+    - objeto: alumnoa
+
+    Resultado:
+    - el registro persistente y consistente de un alumno en la base de datos del sistema
+    #+END_QUOTE
+*** Ejemplos
+    #+BEGIN_QUOTE
+    - *instalar* (v.inf) cliente antivirus en endpoint
+    - *validar* (v. inf) la memoria virtual 
+    #+END_QUOTE
+*** Detallado
+    - Rol + verbo + objeto
+
+   #+BEGIN_QUOTE
+   Por ejemplo
+   *la secretaría de alumnos registrará/podra registrar un alumno con su dni
+   apellido, nombre, tel, email,fecha de ingreso y carrera*
+
+   - rol: secretaría de alumnos
+   - verbo: registrará/podra registrar
+   - objeto: alumno
+   - variable(x): apellido,nombre,tel,email,fecha de ingreso y carrera
+   #+END_QUOTE
+* Requerimientos NO funcionales
+** Conceptos
+   - Restricciones de calidad
+   - Restringen el diseño de la solución al requerimiento funcional
+   - Deben ser *medibles*
+** Ejemplos
+   #+BEGIN_QUOTE
+   #+END_QUOTE
+* Ejemplos en clase
+* dudas kahoot
+  2. Responsabilidad del Ing. de Req.: no era acompañar?
+  3. 

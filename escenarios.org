@@ -1,3 +1,4 @@
+#+TITLE: Escenarios
 * Escenarios actuales y Escenarios del futuro
 ** Conceptos
    - NO pueden distinguirse _por su estructura_
@@ -48,7 +49,7 @@
    #+BEGIN_QUOTE
    El modelo de escenario _debe interpretarse como pautas sintácticas y estructurales_ con el fin de
    1. demostrar los varios aspectos que los escenarios pueden cubrir
-   2. _facilitar la verificación_ del escenario (//mediante algún proceso automatizado//)
+   2. _facilitar la verificación_ del escenario (/mediante algún proceso automatizado/)
    #+END_QUOTE
 ** El título (nombre de escenario) y el objetivo del escenario
    - deben describirse desde el *punto de vista del negocio*
@@ -73,7 +74,7 @@
 ** Como expresar un Escenario
    Independientemente del tipo, un episodio puede ser expresado como
    - una *acción simple*
-   - ó como un escenario (//posibilitando la descomposición del escenario en sub-escenarios//)
+   - ó como un escenario (/posibilitando la descomposición del escenario en sub-escenarios/)
 ** Compresión de un Escenario
    La comprensión de un escenario se facilita por 
    1. el uso del (LN) *Lenguaje Natural*
@@ -101,7 +102,7 @@
    #+END_QUOTE
 ** Cuando utilizar un sub-escenario
    - se _detecta un comportamiento común_ en varios escenarios
-    (//para evitar que dos o más escenarios tienen 5 episodios con la misma lógica//)
+    (/para evitar que dos o más escenarios tienen 5 episodios con la misma lógica/)
    - ó si _aparece un curso de acción condicional o alternativo que es complejo_ en un escenario 
    - ó si se detecta la _necesidad de resaltar una situación con un objetivo concreto y preciso_ dentro de un escenario
 

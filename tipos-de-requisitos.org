@@ -1,0 +1,151 @@
+#+TITLE: Requisitos Funcionales y Requisitos NO Funcionales
+* Conceptos
+** (RF) Requerimientos Funcionales - Formato
+  #+BEGIN_QUOTE
+  RF de alto nivel (resumido): Verbo en Infinitivo + Objeto sobre el que actúa
+  RF detallado: Rol + Verbo + Objeto + Variable(x)
+  #+END_QUOTE
+** (RNF) Requerimiento NO Funcional
+   1. es el *COMO* se realiza el (RF)
+   2. es una *restricción* sobre el (RF)
+   3. debe ser *medible*
+* Ejemplos de RF y RNF
+** (RF) Requisitos Funcionales
+  |-------------+--------------------+--------------------------------|
+  | ROL         | VERBO              | OBJETO                         |
+  |-------------+--------------------+--------------------------------|
+  | El pasajero | podrá pedir        | un viaje                       |
+  | El pasajero | puede buscar       | un destino                     |
+  | El pasajero | podrá cancelar     | un viaje                       |
+  | El pasajero | puede pagar        | un viaje                       |
+  | El pasajero | puede obtener      | la posición de los conductores |
+  | El pasajero | puede agregar      | destinos favoritos             |
+  | El pasajero | se puede comunicar | con el conductor               |
+  | El pasajero | puede obtener      | el trayecto del viaje          |
+  | El pasajero | puede registrar    | una cuenta                     |
+  | El pasajero | debe confirmar     | su email                       |
+  |-------------+--------------------+--------------------------------|
+** (RNF) Requisitos NO funcionales Medibles
+   |------------------------------------------+-----------------------------+----------------|
+   | ATRIBUTO MEDIBLE                         | OBJETO                      | VALOR LIMITADO |
+   |------------------------------------------+-----------------------------+----------------|
+   | El radio de búsqueda                     | de los viajes               | es 2 km        |
+   | El tiempo límite                         | de cancelación del viaje    | es 5 minutos   |
+   | La cantidad de conductores visibles      | en el mapa                  | es 5           |
+   | El radio de búsqueda                     | de los conductores          | es 2 km        |
+   | La cantidad máxima de destinos favoritos | para cada cuenta de usuario | es 10          |
+   | La cantidad de caracteres                | de los mensajes             | es 128         |
+   | El tiempo límite                         | de confirmación             | es 10 dias     |
+   |------------------------------------------+-----------------------------+----------------|
+** (RNF) Requisitos NO funcionales como Restricción
+   |----------------------------------------------+--------------------------------+--------------------------------------------------|
+   | SUJETO/OBJETO de un (RF) REQUISITO FUNCIONAL | RESTRICCIÓN (aplicada)         | COMENTARIOS                                      |
+   |----------------------------------------------+--------------------------------+--------------------------------------------------|
+   | Una búsqueda de destino                      | requiere Google Maps instalado | se restringe el *COMO* se realizan las busquedas |
+   | Un viaje en curso                            | no se puede cancelar           |                                                  |
+   | El pago                                      | permitido es en efectivo       | se restringe el *COMO* debe pagar                |
+   | El medio de comunicación                     | es por chat                    | se restringe el *COMO* se puede comunicar        |
+   | Durante el viaje                             | no se pueden enviar mensajes   |                                                  |
+   | El trayecto de viaje                         | se obtiene por email           | se restringe el *COMO* se obtiene el trayecto    |
+   | El formato de la imagen de perfil            | debe ser jpeg ó png            |                                                  |
+   |----------------------------------------------+--------------------------------+--------------------------------------------------|
+* Ejemplos de RF y RNF con error
+** Ejemplos de Requisitos Funcionales con Error
+*** Ejemplo 1 - No interesa el COMO si no el QUE
+**** Requisitos Funcionales con error
+     1. Publicar Propiedad +en la web+
+     2. Obtener Tasación +por Email+
+     3. Cargar Obra como +En Restauración+
+     4. Consultar Obras de Arte +ordenadas por fecha+
+**** Observaciones
+     - En (CU) no interesa el *COMO* si no el *QUE*
+     - NO interesa el COMO publica la propiedad
+     - NO interesa el COkMO obtiene la tasación
+     - Un tipo de ordenamiento sería el COMO queremos obtenerlo el objeto, nos interesa el QUE queremos obtener…
+*** Ejemplo 2 - Elegir verbo según el actor
+**** Requisitos Funcionales con error
+     1. +Recibir+ Tasación
+     2. +Recibir+ Pago de Alquiler
+     3. +Recibir+ Notificación de Publicación
+     4. +Recibir+ Alerta de Contrato de Alquiler
+**** Requisitos Funcionales corregidos
+     1. Obtener Tasación
+     2. Tasar Propiedad (/Tasar es un verbo cuyo actor es el Tasador/)
+     3. Cobrar Alquiler (/Cobrar es un verbo cuyo actor es el Propietario/)
+     4. Notificar Nueva Publicación
+     5. Notificar Contrato de Alquile
+**** Observaciones
+     - Evitar usar el verbo *Recibir* 
+     - Para notificaciones usar el verbo *Notificar* en vez de *Recibir* pensarlo a nivel de sistema
+*** Ejemplo 3 - Evitar las palabras datos e información
+**** Requisitos Funcionales con error
+     1. Cargar +Datos de+ Cuenta Bancaria
+     2. Cargar +valoración+ de obra (/la valoración es un atributo de objeto Obra/)
+     3. Cargar +datos+ de obra
+     4. Cargar +fotos a+ cuadro (/las fotos es un atributo de objeto Cuadro/)
+     5. Cargar +fotos a+ escultura
+**** Requisitos Funcionales corregidos
+     1. Cargar Cuenta Bancaria
+     2. Valorar Obra
+     3. Cargar Obra
+     4. Cargar Esculturua
+     5. Cargar Cuadro (/Cuadro es el objeto del cual necesitamos persistir atributos/)
+**** Observaciones
+     - Evitar usar las palabras *Datos* ó *Información* porque son *ambíguas* (/pueden tener varios significados según el contexto/)
+     - NO necesitamos especificar el atributo del Objeto que necesitamos persistir
+     (/Ej. Cargar fotos a cuadro, las fotos es un atributo del objeto Cuadro. Lo correcto sería Cargar Cuadro/)
+*** Ejemplo 4 - RF de alto Nivel
+**** Requisitos Funcionales con error
+    1. Dar de Alta
+    2. Renovar +Solicitud de+ Alquiler
+**** Requisitos Funcionales corregidos
+    1. Dar de Alta Cuenta de Usuario
+    2. Renovar Alquiler
+**** Observaciones
+     - NO olvidar el *objeto* del (RF)
+
+     #+BEGIN_QUOTE
+     El formato de un (RF) de alto nivel es
+     *VERBO (en infinitivo) + OBJETO*
+     #+END_QUOTE
+*** Ejemplo 5 - RF detallado
+**** Requisitos Funcionales con error
+     1. El pasajero puede obtener la posición de los conductores +antes de iniciar un viaje+
+     2. El pasajero puede comunicarse +mediante el chat+ con el conductor
+     3. El pasajero puede pagar +con efectivo+ el viaje
+**** Requisitos Funcionales corregidos
+     1. El pasajero puede obtener la posición de los conductores
+     2. El pasajero puede comunicarse con el conductor
+     3. El pasajero puede pagar el viaje
+**** Observaciones
+     - En un (RF) no interesa el *COMO*, si no el *QUE* 
+     - Los (RNF) definen el *COMO* se realiza un (RF) (/Ej. como pagar, como comunicarse, ../)
+
+     #+BEGIN_QUOTE
+     El formato de un (RF) detallado es
+     *ROL + VERBO + OBJETO + VAR(x)*
+     #+END_QUOTE
+** Ejemplos de Requisitos NO funcionales con error
+*** Ejemplo 1 - Definir el Sujeto al aplicar una restricción
+**** Requerimientos NO funcionales con error
+     1. Debe registrar conductores en un radio de 2 km (/le falta el sujeto/)
+**** Requerimientos NO funcionales corregidos
+     1. El Sistema debe registrar conductores en un radio de 2 km
+     2. El radio de búsqueda es de 2km
+**** Observaciones
+     - El (RNF) debe aclarar el *objeto/sujeto* sobre el que se aplica la restricción
+*** Ejemplo 2 - Un RNF debe ser medible
+**** Requerimientos NO funcionales con error
+     1. La imagen de perfil debe tener como minimo 400px
+**** Requerimientos NO funcionales corregidos
+     1. La definición minima de la imagen debe ser de 400px
+**** Observaciones
+     #+BEGIN_QUOTE
+     Un formato posible de un (RNF) es
+     *ATRIBUTO MEDIBLE + OBJETO + VALOR LIMITADO*
+
+     Por ejemplo: El radio de búsqueda de los viajes es 2 km
+     - Atributo medible: El radio de búsqueda
+     - Objeto: de los viajes
+     - Valor limitado: es 2 km
+     #+END_QUOTE

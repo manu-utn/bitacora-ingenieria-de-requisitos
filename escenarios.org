@@ -1,0 +1,143 @@
+* Escenarios actuales y Escenarios del futuro
+** Conceptos
+   - NO pueden distinguirse _por su estructura_
+   - Pueden diferenciarse _por su contenido_
+   - Se espera que _evolucionen de un contexto inicial a uno en prospectiva_
+   - Las expectativas futuras cambian con el tiempo y los *escenarios futuros* deben reflejar estos cambios.
+
+   #+BEGIN_QUOTE
+   Cualquier referencia al futuro debe entenderse como un “futuro esperado”.
+   Esto no implica falta de exactitud, precisión o calidad.
+   Significa que el escenario futuro modela cosas que no existen aún, son sólo planeadas y, por supuesto,
+   evolucionarán a lo largo del eje “tiempo de desarrollo” del CORB
+   #+END_QUOTE
+** Los actores en los Escenarios Actuales
+   - Son principalmente *sujetos del LEL* ó personas identificables en el *UdeD*
+   - El *sistema de software* planificado será un *actor principal*
+** El UdeD actual
+   - Significa comprender lo que está pasando en él
+** El UdeD futuro
+   - Significa _elicitar el conocimiento_ de lo que se necesita o se espera
+   - Los *escenarios futuros* se relacionan con los requisitos
+   - Los *escenarios actuales* competen más con el conocimiento del contexto
+** La gestión de requisitos
+   - Es imposible sin la apropiada *trazabilidad*
+
+   #+BEGIN_QUOTE
+   La disponibilidad de descripciones de situaciones y _la capacidad de rastrear hacia adelante y hacia atrás_
+   en la evolución de los artefactos es esencial para _proporcionar un proceso de requisitos orientado a la calidad_
+   #+END_QUOTE
+* Modelo de Escenario
+** Estructura
+   Es una estructura compuesta por las siguientes entidades: 
+   - Título
+   - Objetivo
+   - Contexto (ubicación temporal + ubicación geográfica + precondiciones)
+   - Recursos
+   - Actores
+   - Episodios 
+   - Excepciones
+   - el atributo restricción
+** Actores y recursos
+   - Son dos *componentes enumerativos*
+** El título, el objetivo, el contexto y las excepciones
+   - Son *componentes declarativos*
+** Los episodios
+   - Son un _conjunto de sentencias en un lenguaje simple_ que dan una descripción operacional de comportamiento
+
+   #+BEGIN_QUOTE
+   El modelo de escenario _debe interpretarse como pautas sintácticas y estructurales_ con el fin de
+   1. demostrar los varios aspectos que los escenarios pueden cubrir
+   2. _facilitar la verificación_ del escenario (//mediante algún proceso automatizado//)
+   #+END_QUOTE
+** El título (nombre de escenario) y el objetivo del escenario
+   - deben describirse desde el *punto de vista del negocio*
+
+   #+BEGIN_QUOTE
+   Por ejemplo el título del escenario en la situación de un solicitante que paga un trámite, podría ser “Pagar el trámite”,
+   pero es preferible mostrar el punto de vista del sistema bajo estudio “Cobrar el trámite”
+   #+END_QUOTE
+** El contexto
+   #+BEGIN_QUOTE
+   Se describe detallando la _ubicación geográfica, la ubicación temporal y las precondiciones_
+   y al menos uno de estos tres sub-componentes debe estar presente en el contexto.
+   #+END_QUOTE
+** La ubicación temporal y las precondiciones
+   - Pueden expresarse a través de una o más oraciones simples vinculadas por los conectores: ~y~, ~o~
+** La ubicación geográfica
+   #+BEGIN_QUOTE
+   Como _debe representar un único lugar para que el escenario represente una situación_,
+   entonces este sub - componente _sólo puede expresarse combinando lugares con el conector “o”._
+   #+END_QUOTE
+* Episodios
+** Como expresar un Escenario
+   Independientemente del tipo, un episodio puede ser expresado como
+   - una *acción simple*
+   - ó como un escenario (//posibilitando la descomposición del escenario en sub-escenarios//)
+** Compresión de un Escenario
+   La comprensión de un escenario se facilita por 
+   1. el uso del (LN) *Lenguaje Natural*
+   2. el manejo de situaciones bien delimitadas
+   3. y el uso de sub-escenarios
+** Tipos de Episodios
+*** Los episodios
+    pueden ser de tres tipos: simples, condicionales u opcionales.
+*** Los episodios simples
+    son aquellos necesarios para concluir el desenvolvimiento del escenario
+*** Los episodios condicionales
+    son aquellos cuya ocurrencia dependen de una condición específica. La condición puede ser interna o externa al escenario.
+    Las condiciones internas pueden deberse a ubicaciones o precondiciones alternativas (es decir, que contienen el conector “o”) y a episodios previos.
+*** Los episodios opcionales
+    Se escriben encerrados entre corchetes y son aquellos que pueden o no ocurrir dependiendo de condiciones que no pueden ser explicitadas. 
+* Sub-Escenarios
+** Conceptos
+   - Se agrega el nombre del subescenario como un episodio más 
+   - Existe una *relación jerárquica* entre los escenarios _establecida mediante episodios_ que son en sí mismos escenarios
+
+   #+BEGIN_QUOTE
+   Surgen cuando al descubrir una situación inmersa dentro de otra 
+   _se prefiere detallar  a la primera en un escenario separado con mayor nivel_
+   de detalle que en el escenario que la contiene.
+   #+END_QUOTE
+** Cuando utilizar un sub-escenario
+   - se _detecta un comportamiento común_ en varios escenarios
+    (//para evitar que dos o más escenarios tienen 5 episodios con la misma lógica//)
+   - ó si _aparece un curso de acción condicional o alternativo que es complejo_ en un escenario 
+   - ó si se detecta la _necesidad de resaltar una situación con un objetivo concreto y preciso_ dentro de un escenario
+
+   #+BEGIN_QUOTE
+   Durante el proceso de construcción de los escenarios, se suele mantener en cada escenario un *componente transitorio “Dudas”* de texto libre,
+   que se elimina antes de finalizar el proceso, pues debe quedar vacío previamente, esto ocurre en la *etapa de analisis*
+   #+END_QUOTE
+* Episodios en Orden Secuencial y/ó NO Secuencial
+** El modelo de escenario
+   - Provee la descripción de comportamientos con _diferentes órdenes temporales_
+** Una secuencia de episodios
+   - Implíca un _orden de precedencia_
+** Orden NO secuencial
+   - Se debe agrupar dos o más episodios utilizando el carácter numeral al comienzo y fin del grupo
+   - Se utiliza para _expresar paralelismo_ (/tareas asincrónicas, relacionar con el diagrama de actividades con la linea de asincronismo/)
+* Atributo de Restricción
+  - Se puede aplicar individualmente a los *episodios*
+  - Se utiliza para _caracterizar limitaciones o condiciones de calidad_ respecto a la realización del *episodio*
+  - Estas restricciones _se asocian a RNF_
+* Excepciones
+** Conceptos
+  - Un escenario puede ser _interrumpido por excepciones_
+** Descripción
+   #+BEGIN_QUOTE
+   Cada excepción se describe con una *sentencia simple* que especifica la _causa de la interrupción_,
+   seguido de la _lista de números de episodios_ donde la excepción puede ocurrir. 
+
+   Si no se especifica una lista ⇒ la excepción puede ocurrir en cualquier momento 
+   #+END_QUOTE
+** Tratamiento de una Excepción
+   #+BEGIN_QUOTE
+   Puede o no cumplir con el _objetivo original del escenario_
+
+   Ej. si querías reservar un libro, si no se reservo seria la excepcion que está fuera del objetivo
+   #+END_QUOTE
+*** Tratamiento Especial
+    - Se describe en otro escenario y en el *componente Excepciones* se incluye entre paréntesis sólo el *título del escenario*
+*** Tratamiento Simple 
+    - Se puede describir en una oración siguiendo el estilo de un *episodio simple*

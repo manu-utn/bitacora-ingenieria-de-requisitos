@@ -90,7 +90,7 @@
     @endmindmap
   #+END_SRC
 
-  [[./img/lel-mindmap]]
+  [[./img/lel-mindmap.png]]
 * Conceptos
   - Se _registran símbolos_ (/palabras o frases/) relevantes del dominio
   - Contiene hipervínculos entre sus entradas (/se refiere a los simbolos, estos son las entradas del léxico/)

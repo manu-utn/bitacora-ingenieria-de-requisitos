@@ -110,7 +110,7 @@
    Durante el proceso de construcción de los escenarios, se suele mantener en cada escenario un *componente transitorio “Dudas”* de texto libre,
    que se elimina antes de finalizar el proceso, pues debe quedar vacío previamente, esto ocurre en la *etapa de analisis*
    #+END_QUOTE
-* Episodios en Orden Secuencial y/ó NO Secuencial
+* Episodios en Orden Secuencial y NO Secuencial
 ** El modelo de escenario
    - Provee la descripción de comportamientos con _diferentes órdenes temporales_
 ** Una secuencia de episodios
@@ -142,3 +142,95 @@
     - Se describe en otro escenario y en el *componente Excepciones* se incluye entre paréntesis sólo el *título del escenario*
 *** Tratamiento Simple 
     - Se puede describir en una oración siguiendo el estilo de un *episodio simple*
+* Ejemplos Básicos (sin Episodios)
+** Ejemplos Escenarios Actuales
+*** Ejemplo 1
+    |--------------+------------------------------------------------|
+    | TITULO       | TRAMITE DE PASAPORTE ORIGINAL                  |
+    |--------------+------------------------------------------------|
+    | OBJETIVO     | Dar un pasaporte al interesado por primera vez |
+    |--------------+------------------------------------------------|
+    | PRECONDICIÓN | El solicitante nunca obtuvo un pasaporte       |
+    |--------------+------------------------------------------------|
+    | RECURSOS     | pasaporte                                      |
+    |--------------+------------------------------------------------|
+    | ACTORES      | solicitante                                    |
+    |--------------+------------------------------------------------|
+*** Ejemplo 2
+    |--------------+------------------------------------------------------------------------------------------|
+    | TITULO       | COBRAR EL TRAMITE                                                                        |
+    |--------------+------------------------------------------------------------------------------------------|
+    | OBJETIVO     | Cobrar el trámite al solicitante                                                         |
+    |--------------+------------------------------------------------------------------------------------------|
+    | PRECONDICIÓN | El solicitante debió completar el formulario y pasaporte por el control de documentación |
+    |--------------+------------------------------------------------------------------------------------------|
+    | RECURSOS     | formulario                                                                               |
+    |--------------+------------------------------------------------------------------------------------------|
+    | ACTORES      | solicitante, cajero                                                                      |
+    |--------------+------------------------------------------------------------------------------------------|
+*** Ejemplo 3
+    |--------------+------------------------------------------------------------------------|
+    | TITULO       | DISEÑAR LA AGENDA DE REUNIONES                                         |
+    |--------------+------------------------------------------------------------------------|
+    | OBJETIVO     | Definir la fecha, la hora, el lugar y los requerimientos de la reunión |
+    |--------------+------------------------------------------------------------------------|
+    | PRECONDICIÓN | Debe presentarse previamente la necesidad de una reunión               |
+    |--------------+------------------------------------------------------------------------|
+    | RECURSOS     | agenda, cronograma de reuniones, horarios disponibles                  |
+    |--------------+------------------------------------------------------------------------|
+    | ACTORES      | convocante, secretaria                                                 |
+    |--------------+------------------------------------------------------------------------|
+*** Ejemplo 4
+    |--------------+--------------------------------------------------------------|
+    | TITULO       | TRASLADAR LA FECHA DE LA REUNION                             |
+    |--------------+--------------------------------------------------------------|
+    | OBJETIVO     | Actualizar la agenda por un cambio en la fecha de la reunión |
+    |--------------+--------------------------------------------------------------|
+    | PRECONDICIÓN | La reunión está en la agenda                                 |
+    |--------------+--------------------------------------------------------------|
+    | RECURSOS     | agenda, cronograma de reuniones, horarios disponibles        |
+    |--------------+--------------------------------------------------------------|
+    | ACTORES      | convocante, secretaria                                       |
+    |--------------+--------------------------------------------------------------|
+*** Ejemplo 5
+    |--------------+------------------------------------------------------------------------------------------------------|
+    | TITULO       | ESTABLECER LA FECHA DE LA REUNION                                                                    |
+    |--------------+------------------------------------------------------------------------------------------------------|
+    | OBJETIVO     | Fijar al fecha, la hora y el lugar de la reunión                                                     |
+    |--------------+------------------------------------------------------------------------------------------------------|
+    | PRECONDICIÓN | Se tienen los horarios disponibles de los convocados y del convocante y la disponibilidad de espacio |
+    |--------------+------------------------------------------------------------------------------------------------------|
+    | RECURSOS     | espacios disponibles, horarios disponibles                                                           |
+    |--------------+------------------------------------------------------------------------------------------------------|
+    | ACTORES      | convocante                                                                                           |
+    |--------------+------------------------------------------------------------------------------------------------------|
+** Ejemplos Escenarios Futuros
+*** Ejemplo 1
+    |--------------+-----------------------------------|
+    | TITULO       | CARGAR FORMULARIO PROVISORIO      |
+    |--------------+-----------------------------------|
+    | OBJETIVO     | Ingresar el formulario desde Caja |
+    |--------------+-----------------------------------|
+    | PRECONDICIÓN |                                   |
+    |--------------+-----------------------------------|
+    | RECURSOS     | formulario                        |
+    |--------------+-----------------------------------|
+    | ACTORES      | solicitante, sistema de Software  |
+    |--------------+-----------------------------------|
+*** Ejemplo 2
+    |--------------+------------------------------------------------------------------------------------------|
+    | TITULO       | COBRAR EL TRAMITE                                                                        |
+    |--------------+------------------------------------------------------------------------------------------|
+    | OBJETIVO     | Cobrar el trámite al solicitante                                                         |
+    |--------------+------------------------------------------------------------------------------------------|
+    | PRECONDICIÓN | El solicitante debió completar el formulario y pasaporte por el control de documentación |
+    |--------------+------------------------------------------------------------------------------------------|
+    | RECURSOS     | formulario                                                                               |
+    |--------------+------------------------------------------------------------------------------------------|
+    | ACTORES      | solicitante, sistema de software                                                         |
+    |--------------+------------------------------------------------------------------------------------------|
+* Ejemplos de Escenario y Léxico Extendido del Lenguaje
+** Ejemplo 1
+   [[./img/lel-escenario-1.jpg]]
+** Ejemplo 2
+   [[./img/lel-escenario-2.png]]

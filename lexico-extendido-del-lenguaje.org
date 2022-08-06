@@ -1,0 +1,277 @@
+#+TITLE: (LEL) Léxico Extendido del Lenguaje
+* Mindmap
+  #+BEGIN_SRC plantuml :file img/mindmap-lel.png :exports results
+    @startmindmap "OrgMode"
+    title (LEL) Léxico Extendido del Lenguaje
+
+    '-------- Homonimo ---------
+
+    ,* Homonimo
+    ,**:- mismo termino con dos o mas significados
+    - distintas areas/sectores usan el mismo termino con otro significado
+    - cada termino es una entrada diferente en el lexico
+      (//una entrada es un simbolo del LEL y tienen un unico significado//);
+
+
+    '-------- Jerarquias ---------
+    ,* Jerarquias \n(//del LEL//)
+
+    ,**[#orange] Genero
+    ,***_ Simbolo del LEL
+    ,***_ genera una Relacion tipo-supertipo (//entre simbolos//)
+    ,***_ Reduce ambiguedad
+    ,***_ Abstraccion de alto nivel
+    ,***_ Se le definen __especializaciones__
+
+    '-------- Heuristicas ---------
+    ,* Heuristicas \n(//del LEL//)
+    ,**[#orange] Circularidad
+    ,***_ usar simbolos de LEL para definir nuevos
+    ,***_ en la descripcion de otros simbolos
+    ,**[#orange] Vocabulario Minimo
+    ,***_ uso minimo de palabras del LN
+    ,***_ minimizar el uso de terminos externos al lexico
+
+    '-------- Simbolo ---------
+    ,* Simbolo \n(//del LEL//)
+
+    '-------- Simbolo - Seleccion ---------
+    ,**[#lightgreen] Criterio de Seleccion
+    ,*** palabras/frases frecuentes
+    ,****_ por usuarios/clientes
+    ,****_ en documentos
+    ,*** palabras/frases del dominio
+
+    '-------- Simbolo - Descripcion ---------
+    ,**[#lightgreen] Descripcion
+    ,***[#orange] Nocion
+    ,**** ¿que/quien es?
+    ,***[#orange] Impacto
+    ,**** ¿como actúa?
+
+    '-------- Simbolo - Tipo ---------
+    ,**[#lightgreen] Tipo
+    ,***[#orange] Objeto
+    ,****:__Nocion:__
+    -¿que representa?
+    -identificar características
+    -objetos asociados
+
+    __Impacto:__
+    -¿que acciones/operaciones se realizan con él?
+    -¿que acciones/operaciones se le aplican?;
+
+    ,***[#orange] Sujeto
+    ,****:__Nocion:__
+    -¿quien es?
+
+    __Impacto:__
+    -¿que responsabilidades/actividades realiza/recibe?;
+
+    ,***[#orange] Verbo
+    ,****:__Nocion:__
+    -¿quien lo ejecuta y para que? ¿cuando y donde?
+    -describir la actividad
+
+    __Impacto:__
+    -identificar acciones/operaciones involucradas
+    -¿que situaciones lo impiden?
+    -¿que situaciones genera?;
+
+    ,***[#orange] Estado
+    ,****:__Nocion:__
+    -¿que acciones que llevaron al cambio de estado?
+
+    -__Impacto:__
+    -¿que acciones que pueden ocurrir?
+    -identificar otros estados;
+
+
+    @endmindmap
+  #+END_SRC
+
+  [[./img/lel-mindmap]]
+* Conceptos
+  - Se _registran símbolos_ (/palabras o frases/) relevantes del dominio
+  - Contiene hipervínculos entre sus entradas (/se refiere a los simbolos, estos son las entradas del léxico/)
+  - Está compuesto por un conjunto de símbolos (/palabras ó frases y las más usadas en el dominio de la aplicación/)
+  - Cada entrada del léxico 
+    1. se identifica con un nombre (/o más de uno en caso de sinónimos/)
+    2. y tiene dos tipos de descripciones (/la Noción y el Impacto/)
+* Objetivos del LEL
+  Los problemas que atiende el LEL son problemas de comunicación y problemas de comprensión, siendo entonces sus objetivos:
+  1. Comprender el lenguaje del dominio de la aplicación
+  2. Asegurar una _buena comunicación entre los involucrados_
+  3. _Facilitar la validación con los clientes y usuarios_ de cualquier documento de requisitos escrito en LN
+  4. Preservar el _mismo vocabulario durante el ciclo de vida del software_
+  5. _Facilitar la comprensión del UdeD_ en las actividades de la IR
+* Simbolos del LEL
+** Conceptos
+   - Cada símbolo se identifica por un nombre o nombres (en caso de sinónimos)
+** Descripción de los Simbolos
+   *La Noción* y *el Impacto* describen los simbolos del LEL y su contenido debe respetar
+   - el *Principio de Circularidad*
+   - el *Principio de Vocabulario Mínimo*
+** La Noción
+  - Define “lo que el símbolo es”
+** El Impacto
+  - Describe “cómo el símbolo actúa en el dominio de la aplicación”
+  - Enriquece el conocimiento sobre el símbolo y el contexto
+* Clasificación de los Simbolos del LEL
+** Tipo Sujeto
+   - Realiza actividades en el dominio de la aplicación (/Ej. una persona, organización, máquina o sistema, ../)
+   - La noción tiene que _definir quién es_
+   - El impacto debe registrar las _responsabilidades o actividades que ejecuta o recibe_
+** Tipo Objeto
+   - Se le aplican acciones en el dominio de la aplicación, _NO realiza acciones por sí misma_
+   - La noción _debe definir qué representa, sus características_ e identificar otros _objetos con los que se relaciona_
+   - El impacto debe describir las actividades o acciones que se aplican al objeto o que se realizan con él
+** Tipo Verbo
+   - Una actividad o acción que ocurre en el dominio de la aplicación
+   - La noción debe _describir la actividad que representa_, su propósito e _identificar QUIÉN lo ejecuta, CUÁNDO y DÓNDE se realiza_
+   - El impacto 
+     1. debe registrar las acciones, operaciones o procedimientos involucrados en la actividad
+     2. debe identificar las _situaciones que impiden la ocurrencia de la actividad_
+     3. debe identificar qué otras actividades se desencadenan en el *UdeD* y qué _situaciones ocurren debido a esta actividad_
+** Tipo Estado
+   - Una condición o situación en la cual sujetos, objetos o verbos del dominio de la aplicación están o pueden estar en un momento dado.
+   - La noción lo que significa y los estados y actividades o acciones que llevaron a este estado
+   - El impacto debe identificar otros estados y actividades o acciones que pueden ocurrir a partir de este estado
+* Heurísticas del LEL
+** Conceptos
+   - Son los principios que rigen la descripción de los símbolos
+** El Principio de Circularidad
+   - Declara la maximización del uso de símbolos en la descripción de otros símbolos 
+   - Implíca el _uso de los simbolos del LEL para definir otros simbolos del LEL_
+** El Principio del Vocabulario Mínimo
+   - Establece la minimización del uso de términos que son externos al léxico
+   - Implíca la _utilización de la menor cantidad de vocablos del LN_ para definir simbolos del LEL
+** Reglas para seleccionar simbolos
+   #+BEGIN_QUOTE
+   Siempre tenga presente el _objetivo general del sistema_,
+   aún cuando éste fuese impreciso al inicio,
+   sirve para guiar el proceso de captura de símbolos
+   #+END_QUOTE
+
+   1. Seleccione palabras o frases pertenecientes al dominio de la aplicación
+   2. Seleccione palabras o frases frecuentemente usadas por los clientes y usuarios o con alta repetición en los documentos
+   3. Excluya palabras o frases demasiado obvias que son de dominio público y no particulares del dominio de la aplicación
+   4. Considere aquellas palabras o frases que parecen estar fuera de contexto, desconocidas o confusas como términos dudosos para luego ahondar en ellos
+   5. Identifique el nombre completo del término no importa cuán largo sea. Sin embargo, una abreviatura o un acrónimo puede ser el nombre de un término
+* Jerarquías en el LEL
+** Conceptos
+  #+BEGIN_QUOTE
+  “Las jerarquías entre los símbolos de LEL aparecen cuando dos símbolos comparten el mismo género y éste además es un símbolo del LEL, se genera una relación tipo-supertipo entre los símbolos”
+  La búsqueda de jerarquías de símbolos puede ayudar a mejorar la descripción de símbolos mediante la comparación de nociones e impactos de aquellos símbolos pertenecientes a la misma jerarquía
+  #+END_QUOTE
+
+  - Están _compuestas por símbolos del tipo sujeto y objeto_, y en una menor proporción del tipo verbo, es posible una jerarquía para símbolos del tipo estado
+  - Reducen los significados ambiguos de los términos
+   (/se detectan abstracciones de alto nivel y se les definen sub-tipos, aparecen especializaciones/)
+  - _Incrementan el conocimiento sobre términos con menor abstracción_ respecto de aquéllos en los niveles altos de la jerarquía
+   (/Ej. de Expediente deriva Expediente Archivado, Expediente en Prueba, ../)
+** Género
+   #+BEGIN_QUOTE
+   Para _cada símbolo en el léxico, siempre existe un término más amplio (abstracción) llamado género_,
+   que puede o no pertenecer al vocabulario del dominio de la aplicación
+   #+END_QUOTE
+
+   - Cuando el género de uno o más símbolos no pertenece al léxico, debe ser tenido en cuenta en la descripción de la noción de los símbolos que lo contienen
+   - Siempre incluya el *género* en cada *noción*
+* Homónimos
+  #+BEGIN_QUOTE
+  “cuando el mismo término en el dominio de la aplicación se usa con dos o más significados”
+
+  “Los homónimos no deben desecharse, porque la regla principal de la técnica del LEL es preservar el vocabulario del dominio de la aplicación. Sin embargo, los usuarios seguirán utilizando estos nombres obligando a los ingenieros a reconocer sus diferentes significados”
+  #+END_QUOTE
+
+  - Es frecuente que ocurra en distintas áreas de la organización, donde en un sector se emplea el término con un cierto significado diferente al de otro sector
+  - El término repetido debe ser tratado como entradas diferentes en el léxico
+   (/porque cada entrada muestra una definición del símbolo de acuerdo a un único significado dado por la noción y el impacto/)
+  - Se aconseja _identificar en la noción del símbolo el área o ámbito en el que dicho significado es empleado_
+  - Los nombres de entradas (/se refiere a los nombres de los símbolos del LEL/) _deben ser únicos como claves_
+  - Una manera de resolver los homónimos consiste en indexar el nombre repetido para cada entrada que representa un significado diferente
+* Ejemplos - Simbolo tipo Objeto
+** Ejemplo 1 - Símbolo Plato
+*** Noción
+   - (QUE) _Comida_ que forma parte del _menú_ del _restaurante_, incluida en las peticiones de los _comensales_
+   - (CARACTERISTICAS) Tiene un precio
+*** Impacto
+   - (OPERACION QUE SE LE APLICA) Es solicitado por el _comensal_
+   - (OPERACION QUE SE LE APLICA) El _plato_ es preparado por el _cocinero_ en la _cocina_
+   - (OPERACION QUE SE REALIZA CON EL) Cuando el _plato_ está listo para servir en la _cocina_ es servido por el _mozo_ al _comensal_
+   - (OPERACION QUE SE REALIZA CON EL) El _mozo_ registra en una _comanda_ los _platos_ pedidos por el _comensal_
+** Ejemplo 2 - Símbolo Plato
+***   Impacto
+   - Los _comensales_ piden un _plato_
+   - El _mozo_ agrega un _plato_ a la _comanda_
+   - (OPERACION QUE SE LE APLICA) El _plato_ es cocinado en la _cocina_
+   - (OPERACION QUE SE LE APLICA) El _plato_ es servido en la _mesa_
+   - (OPERACION QUE SE LE APLICA) El _plato_ es retirado de la _mesa_
+** Ejemplo 3 - Símbolo Ficha de lector
+*** Noción
+    - Es el _registro físico_ que contiene información del _lector_ y su historial de _préstamos_
+*** Impacto
+    - (POR QUIEN) El _bibliotecario_ lee la _ficha de lector_ (PARA QUE) para realizar el seguimiento de los _préstamos_ accedidos por un _lector_
+    - (OPERACIONES QUE SE LE APLICAN) En la _ficha de lector_ se guarda el número de documento de identidad ó el número de carnet de lector, la edad y la cantidad de _libros solicitados_
+    - (OPERACIONES QUE SE REALIZAN CON EL) La _ficha de lector_ se imprime en la _oficina de registro_, con la firma de un _bibliotecario_
+* Ejemplos - Símbolo tipo Sujeto
+** Ejemplo 1 - Símbolo Lector
+*** Noción
+    - (QUIEN ES) Es una _integrante_ de la comunidad _académica_, (QUE HACE) que busca tener acceso a un _ejemplar_ de la _biblioteca_
+    - Un _lector_ tiene un legajo, DNI, apellido, nombre
+
+    #+BEGIN_QUOTE
+    En la noción se pueden incluir los atributos que describen al Sujeto (lector)
+    #+END_QUOTE
+*** Impacto
+    - (ACTIVIDAD REALIZADA) El _lector_ solicita un _préstamo_ de un _libro_ al _bibliotecario_
+    - (ACTIVIDAD REALIZADA) El _lector_ realiza la devolución de un _libro_ al _bibliotecario_
+    - (ACTIVIDAD REALIZADA) El _lector_ lee un _libro_
+
+    #+BEGIN_QUOTE
+    el verbo "consulta un libro" es ambíguo, mientras que “lee un libro” es más específico y se ajusta al sujeto lector
+    #+END_QUOTE
+* Ejemplos - Símbolo tipo Verbo
+** Ejemplo 1 - Reservar Libro
+*** Noción
+    - (QUIEN+CUANDO+DONDE) Realizado cuando un _lector_ solicita un _libro_ en la _biblioteca_
+    - (QUIEN+QUE) Es la acción que permite al _lector_ obtener un _libro_ a través del _bibliotecario_ (PARA QUE) para su lectura en forma exclusiva en un tiempo determinado futuro.
+
+    #+BEGIN_QUOTE
+    *Observaciones:*
+    - En las oraciones podemos ser más especificos al definir el *QUE* y *PARA QUE*
+    #+END_QUOTE
+*** Impacto
+    - (POR QUIEN+QUE) El _bibliotecario_ registra el título, la fecha de inicio de reserva y la fecha de fin de la _reserva_ en la _ficha de lector_
+    - (POR QUIEN+QUE) El _bibliotecario_ entrega un _libro_ al _lector_ y el _libro_ pasa a estar no disponible
+    - (QUE) El _lector_ debe presentar su documento de identidad o carnet de lector, (PARA QUE) para acceder a una reserva de un _libro_
+
+    #+BEGIN_QUOTE
+    *Observaciones:*
+    1. Al registrar documentos no olvidar definir fecha inicio y si lo requiere fecha fin
+    2. En las oraciones podemos ser más especificos al definir el *QUE* y *PARA QUE*
+    #+END_QUOTE
+** Ejemplo 2 - Asignar Turno
+*** Noción
+    - (DESCRIBIR) Es la acción de darle al _paciente_ un día y horario para la realización de un _estudio cardíaco_
+    - (POR QUIEN) Es realizado por la _secretaria_
+*** Impacto
+    - (DONDE SE REALIZA) Se registra en la _agenda_ los datos del _paciente_ y el horario asignado
+    - El _paciente_ puede solicitar el _turno_ en forma personal o telefónica
+** Ejemplo 3 - Atender al paciente
+*** Noción
+    - (DESCRIBIR) Es la acción que consiste en realizarle un _estudio_ al _paciente_
+    - (POR QUIEN) Es realizado por el _médico_
+    - (CUANDO) Se realiza en un día y horario acordado previamente al _asignar turno_
+*** Impacto
+    - (RESTRICCON) El _paciente_ debe presentar una _orden de autorización_
+    - (OPERACION QUE GENERA) El _médico_ redacta un _informe_
+** Ejemplo 4 - Devolver Informe
+*** Noción
+    - (DESCRIBIR) Es la acción de entregar al _paciente_ el resultado de un _estudio_
+    - (POR QUIEN+CUANDO) Lo realiza la _secretaria_ por la mañana únicamente
+    - (CUANDO) Se realiza luego de _atender al paciente_
+*** Impacto
+    - (OPERACION INVOLUCRADA) Se le entrega al _paciente_ el _informe_ elaborado por el médico
+    - (OPERACION INVOLUCRADA) Se registra la entrega del _informe_

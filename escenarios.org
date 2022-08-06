@@ -1,4 +1,6 @@
 #+TITLE: Escenarios
+* Modelo de Escenario
+  [[img/diagrama-escenarios.png]]
 * Escenarios actuales y Escenarios del futuro
 ** Conceptos
    - NO pueden distinguirse _por su estructura_
